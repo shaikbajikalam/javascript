@@ -8,8 +8,10 @@
 		function validate(){
 			var firstName=document.getElementById("firstname").value
 			var firstMobile=document.getElementById("mobile").value
+			var firstGmail=document.getElementById("gmail").value
 			var firstNamecheck=/^[a-zA-Z]+$/
 			var firstMobilecheck=/^[0-9]{10}$/
+			var firstGmailcheck=/^[a-zA-Z#._0-9]+@[a-z]+\.[a-z]{2,3}$/
 			if(firstName==""||firstName.length<3){
 				alert("please check your name")
 				return false
@@ -22,6 +24,14 @@
 				alert("number must carry 10 digits")
 				return false
 			}
+			if(firstGmail==""){
+				alert("enter your mail id")
+				return false
+			}
+			if(!firstGmail.match(firstGmailcheck)){
+				alert("check your gmail")
+				return false
+			}
 			return true
 		}
 	</script>
@@ -30,6 +40,7 @@
 	<form onsubmit="return validate()">
 		<p><input placeholder="enter your name" id="firstname"></p>
 		<p><input placeholder="enter mobile number" id="mobile"></p>
+		<p><input placeholder="emter mail" id="gmail" /></p>
 		<button>Submit</button>
 	</form>
 </body>
